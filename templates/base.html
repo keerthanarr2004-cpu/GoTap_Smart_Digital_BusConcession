@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GoTap — Smart Student Transportation System">
+    <title>{% block title %}GoTap{% endblock %} · Smart Student Transportation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+    {% block nav %}
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="{% url 'main' %}">
+                <span class="brand-icon"><i class="fa-solid fa-bus"></i></span>
+                <span class="brand-text">GoTap</span>
+            </a>
+            <nav class="nav-links">
+                <a href="{% url 'main' %}">Home</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary btn-sm">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+    {% endblock %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="brand brand-light" href="{% url 'main' %}">
+                <span class="brand-icon"><i class="fa-solid fa-bus"></i></span>
+                <span class="brand-text">GoTap</span>
+            </a>
+            <p class="footer-tagline">Smart, safe and affordable transportation for students.</p>
+            <nav class="footer-links">
+                <a href="{% url 'main' %}">Home</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'buslogin' %}">Bus Login</a>
+                <a href="{% url 'rtologin' %}">RTO Login</a>
+            </nav>
+            <p class="footer-copy">&copy; {% now "Y" %} GoTap — Smart Student Transportation System.</p>
+        </div>
+    </footer>
+    {% endblock %}
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
